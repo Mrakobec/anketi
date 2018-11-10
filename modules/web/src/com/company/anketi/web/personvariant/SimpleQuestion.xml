@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        class="com.company.anketi.web.personvariant.Simplequestion"
+        messagesPack="com.company.anketi.web.personvariant">
+    <dsContext>
+        <datasource id="personVarianQuestionDs"
+                    class="com.company.anketi.entity.PersonVarianQuestion"
+                    view="_local"/>
+        <collectionDatasource id="personVariantAnswersDs"
+                              class="com.company.anketi.entity.PersonVariantAnswer">
+            <query>
+                <![CDATA[select e from anketi$PersonVariantAnswer e
+where e.personVarianQuestion.id = :ds$personVarianQuestionDs order by e.orderNumber]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout spacing="true"
+            width="100%">
+        <label id="questionNumber"
+               htmlEnabled="true"
+               stylename="bold wrap-text"/>
+        <label id="questionContent"
+               datasource="personVarianQuestionDs"
+               htmlEnabled="true"
+               property="content"
+               stylename="wrap-text"/>
+        <table id="answersTable"
+               contextMenuEnabled="false"
+               editable="true"
+               stylename="no-stripes borderless no-header no-horizontal-lines                 no-vertical-lines double-height big-checkbox"
+               width="100%">
+            <columns>
+                <column id="orderNumber"
+                        editable="false"
+                        width="50px"/>
+                <column id="selectedByPerson"
+                        align="CENTER"
+                        editable="true"
+                        width="50px"/>
+                <column id="content"
+                        editable="false"/>
+            </columns>
+            <rows datasource="personVariantAnswersDs"/>
+        </table>
+    </layout>
+</window>

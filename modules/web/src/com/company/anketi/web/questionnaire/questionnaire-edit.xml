@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.anketi.web.questionnaire.QuestionnaireEdit"
+        datasource="questionnaireDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.anketi.web.questionnaire">
+    <dsContext>
+        <datasource id="questionnaireDs"
+                    class="com.company.anketi.entity.Questionnaire"
+                    view="questionnaireView">
+            <collectionDatasource id="questionsDs"
+                                  property="questions"/>
+        </datasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="questionnaireDs">
+            <column width="400px">
+                <field property="number"/>
+                <field property="name"
+                       rows="5"/>
+            </column>
+        </fieldGroup>
+        <groupBox id="questionsBox"
+                  caption="msg://com.company.anketi.entity/Questionnaire.questions"
+                  spacing="true">
+            <table id="questionsTable"
+                   height="300px"
+                   width="100%">
+                <actions>
+                    <action id="create"/>
+                    <action id="edit"/>
+                    <action id="remove"/>
+                </actions>
+                <columns>
+                    <column id="number"
+                            width="100px"/>
+                    <column id="type"/>
+                    <column id="content"/>
+                </columns>
+                <rows datasource="questionsDs"/>
+                <buttonsPanel>
+                    <button action="questionsTable.create"/>
+                    <button action="questionsTable.edit"/>
+                    <button action="questionsTable.remove"/>
+                </buttonsPanel>
+            </table>
+        </groupBox>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

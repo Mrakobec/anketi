@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.anketi.web.question.QuestionEdit"
+        datasource="questionDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.anketi.web.question"
+        xmlns:common="http://schemas.rsmu.ru/common/1.0/ui-component.xsd">
+    <dsContext>
+        <datasource id="questionDs"
+                    class="com.company.anketi.entity.Question"
+                    view="questionView">
+            <collectionDatasource id="answerVariantsDs"
+                                  property="answerVariants"/>
+        </datasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="questionDs">
+            <column width="250px">
+                <field property="number"/>
+                <field property="type"/>
+            </column>
+        </fieldGroup>
+        <common:ckeditor id="hypertextEditor"
+                         height="auto"/>
+        <groupBox id="answerVariansBox"
+                  caption="msg://com.company.anketi.entity/Question.answerVariants"
+                  spacing="true">
+            <table id="answerVariantsTable"
+                   height="250px"
+                   width="100%">
+                <actions>
+                    <action id="create"/>
+                    <action id="edit"/>
+                    <action id="remove"/>
+                </actions>
+                <columns>
+                    <column id="number"
+                            editable="false"
+                            width="100px"/>
+                    <column id="content"/>
+                </columns>
+                <rows datasource="answerVariantsDs"/>
+                <buttonsPanel>
+                    <button action="answerVariantsTable.create"/>
+                    <button action="answerVariantsTable.edit"/>
+                    <button action="answerVariantsTable.remove"/>
+                </buttonsPanel>
+            </table>
+        </groupBox>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             version="2.0">
+    <persistence-unit name="anketi"
+                      transaction-type="RESOURCE_LOCAL">
+        <class>com.company.anketi.entity.AnswerVarian</class>
+        <class>com.company.anketi.entity.Question</class>
+        <class>com.company.anketi.entity.Questionnaire</class>
+        <class>com.company.anketi.entity.PersonVariantAnswer</class>
+        <class>com.company.anketi.entity.PersonVarianQuestion</class>
+        <class>com.company.anketi.entity.PersonVarianQuestionnaire</class>
+        <class>com.company.anketi.entity.PersonVariant</class>
+    </persistence-unit>
+</persistence>

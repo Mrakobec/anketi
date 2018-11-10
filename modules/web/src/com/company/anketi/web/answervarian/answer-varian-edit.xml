@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        xmlns:common="http://schemas.rsmu.ru/common/1.0/ui-component.xsd"
+        caption="msg://editorCaption"
+        class="com.company.anketi.web.answervarian.AnswerVarianEdit"
+        datasource="answerVarianDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.anketi.web.answervarian">
+    <dsContext>
+        <datasource id="answerVarianDs"
+                    class="com.company.anketi.entity.AnswerVarian"
+                    view="answerVarianView"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="answerVarianDs">
+            <column width="400px">
+                <field id="number" property="number"/>
+            </column>
+        </fieldGroup>
+        <common:ckeditor id="hypertextEditor"
+                         height="auto"/>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

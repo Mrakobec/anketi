@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.anketi.web.personvariant.PersonVariantBrowse"
+        focusComponent="personVariantsTable"
+        lookupComponent="personVariantsTable"
+        messagesPack="com.company.anketi.web.personvariant">
+    <dsContext>
+        <groupDatasource id="personVariantsDs"
+                         class="com.company.anketi.entity.PersonVariant"
+                         view="personVariantView">
+            <query>
+                <![CDATA[select e from anketi$PersonVariant e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="personVariantsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="personVariantsTable"
+                datasource="personVariantsDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="personVariantsTable"
+                    width="100%">
+            <actions>
+                <action id="refresh"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+                <column id="startTime"/>
+                <column id="endTime"/>
+                <column id="solverLogin"/>
+            </columns>
+            <rows datasource="personVariantsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="refreshBtn"
+                        action="personVariantsTable.refresh"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

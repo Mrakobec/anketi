@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        class="com.company.anketi.web.personvariant.Variantinfo"
+        messagesPack="com.company.anketi.web.personvariant">
+    <dialogMode height="600"
+                width="800"/>
+    <layout height="100%"
+            width="100%">
+        <label id="variantName"
+               align="TOP_CENTER"
+               htmlEnabled="true"/>
+    </layout>
+</window>

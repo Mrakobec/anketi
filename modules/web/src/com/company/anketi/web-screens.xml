@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<screen-config xmlns="http://schemas.haulmont.com/cuba/screens.xsd">
+    <screen id="anketi$AnswerVarian.edit"
+            template="com/company/anketi/web/answervarian/answer-varian-edit.xml"/>
+    <screen id="anketi$Question.edit"
+            template="com/company/anketi/web/question/question-edit.xml"/>
+    <screen id="anketi$Questionnaire.browse"
+            template="com/company/anketi/web/questionnaire/questionnaire-browse.xml"/>
+    <screen id="anketi$Questionnaire.edit"
+            template="com/company/anketi/web/questionnaire/questionnaire-edit.xml"/>
+    <screen id="anketi$PersonVariant.browse"
+            template="com/company/anketi/web/personvariant/person-variant-browse.xml"/>
+    <screen id="anketi$VariantSolve"
+            template="com/company/anketi/web/personvariant/VariantSolve.xml"/>
+    <screen id="statusmanagement$Status.change"
+            template="com/company/anketi/web/questionnaire/QuestionnaireStatus.change.xml"/>
+    <screen id="anketi$VariantInfo"
+            template="com/company/anketi/web/personvariant/VariantInfo.xml"/>
+    <screen id="anketi$SimpleQuestion"
+            template="com/company/anketi/web/personvariant/SimpleQuestion.xml"/>
+    <screen id="anketi$VariantResults"
+            template="com/company/anketi/web/personvariant/VariantResults.xml"/>
+    <screen id="anketi$PersonVariantAnswer.browse"
+            template="com/company/anketi/web/personvariantanswer/person-variant-answer-browse.xml"/>
+    <screen id="anketi$PersonVariantAnswer.edit"
+            template="com/company/anketi/web/personvariantanswer/person-variant-answer-edit.xml"/>
+</screen-config>

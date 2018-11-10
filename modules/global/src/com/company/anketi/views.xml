@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
+    <view class="com.company.anketi.entity.AnswerVarian"
+          extends="_local"
+          name="answerVarianView">
+        <property name="question"
+                  view="_minimal"/>
+    </view>
+    <view class="com.company.anketi.entity.Question"
+          extends="_local"
+          name="questionView">
+        <property name="questionnaire"
+                  view="_local"/>
+        <property name="answerVariants"
+                  view="answerVarianView"/>
+    </view>
+    <view class="com.company.anketi.entity.Questionnaire"
+          extends="_local"
+          name="questionnaireView">
+        <property name="questions"
+                  view="questionView"/>
+        <property name="status"
+                  view="_minimal"/>
+    </view>
+    <view class="com.company.anketi.entity.PersonVariant"
+          extends="_local"
+          name="personVariantView">
+        <property name="personVarianQuestions"
+                  view="_local"/>
+    </view>
+    <view class="com.company.anketi.entity.PersonVarianQuestion"
+          extends="_local"
+          name="personVarianQuestion-view">
+        <property name="answers"
+                  view="_local"/>
+        <property name="personVariant"
+                  view="_minimal"/>
+    </view>
+    <view class="com.company.anketi.entity.PersonVariant"
+          extends="_local"
+          name="personVariant-view">
+        <property name="personVarianQuestions">
+            <property name="orderNumber"/>
+            <property name="content"/>
+            <property name="answers">
+                <property name="orderNumber"/>
+                <property name="content"/>
+                <property name="selectedByPerson"/>
+            </property>
+        </property>
+    </view>
+</views>

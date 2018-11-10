@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://caption"
+        class="com.company.anketi.web.personvariant.Variantsolve"
+        messagesPack="com.company.anketi.web.personvariant">
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="contentBox">
+        <buttonsPanel id="buttonsPanel">
+            <button id="previousQuestionButton"
+                    caption="msg://toPreviousQuestion"
+                    icon="font-icon:ARROW_LEFT"
+                    invoke="goToPreviousQuestion"/>
+            <button id="nextQuestionButton"
+                    caption="msg://toNextQuestion"
+                    icon="font-icon:ARROW_RIGHT"
+                    invoke="goToNextQuestion"
+                    stylename="icon-align-right"/>
+            <button id="finishTestButton"
+                    caption="msg://finishTest"
+                    enable="false"
+                    icon="font-icon:CHECK"
+                    invoke="finishTest"
+                    visible="false"/>
+            <button id="closeTestButton"
+                    caption="msg://close"
+                    icon="font-icon:CLOSE"
+                    invoke="closeTest"
+                    visible="false"/>
+        </buttonsPanel>
+        <vbox id="contentBox"/>
+    </layout>
+</window>

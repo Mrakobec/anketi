@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.anketi.web.questionnaire.QuestionnaireBrowse"
+        messagesPack="com.company.anketi.web.questionnaire">
+    <dsContext>
+        <groupDatasource id="questionnairesDs"
+                         class="com.company.anketi.entity.Questionnaire"
+                         view="questionnaireView">
+            <query>
+                <![CDATA[select e from anketi$Questionnaire e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout spacing="true">
+        <scrollBox id="scrollBox"
+                   height="100%"
+                   spacing="true">
+            <filter id="filter"
+                    applyTo="questionnaireGrid"
+                    datasource="questionnairesDs">
+                <properties include=".*"/>
+            </filter>
+            <flowBox id="buttonsPanel"
+                     spacing="true"
+                     width="100%">
+                <button id="createButton"
+                        action="questionnaireGrid.create"/>
+                <button id="editButton"
+                        action="questionnaireGrid.edit"/>
+                <button id="refreshButton"
+                        action="questionnaireGrid.refresh"/>
+                <button id="removeButton"
+                        action="questionnaireGrid.remove"/>
+                <button id="changeStatusButton"
+                        action="questionnaireGrid.changeStatus"/>
+                <button id="testQtPackageButton"
+                        action="questionnaireGrid.anketaTest"/>
+            </flowBox>
+            <dataGrid id="questionnaireGrid"
+                      datasource="questionnairesDs"
+                      textSelectionEnabled="true"
+                      width="100%">
+                <actions>
+                    <action id="create"/>
+                    <action id="edit"/>
+                    <action id="remove"/>
+                    <action id="refresh"/>
+                    <action id="changeStatus"
+                            caption="msg://changeStatus"
+                            enable="false"
+                            invoke="changeStatus"/>
+                    <action id="anketaTest"
+                            caption="msg://anketaTest"
+                            enable="false"
+                            invoke="anketaTest"
+                            visible="false"/>
+                </actions>
+                <columns>
+                    <column property="number"/>
+                    <column property="name"/>
+                </columns>
+            </dataGrid>
+        </scrollBox>
+    </layout>
+</window>
